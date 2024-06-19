@@ -14,9 +14,10 @@ export const getFirstThreeFantasyBooks = async () => {
                 urlKey: work.authors[0].key
             }
             console.log(author)
-            const coverURL = `https://covers.openlibrary.org/a/id/${work.cover_id}-M.jpg`;
-            return { title, author, coverURL }
+            const coverUrl = `https://covers.openlibrary.org/a/id/${work.cover_id}-M.jpg`;
+            return { title, author, coverUrl }
         })
+        console.log(books)
         return books
 
     }
