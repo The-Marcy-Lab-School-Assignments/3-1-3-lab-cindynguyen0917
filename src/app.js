@@ -34,6 +34,7 @@ export default async function app(appDiv) {
   // render out the books
   renderBookList(bookListEl, books)
 
+  getAuthor("/authors/OL22098A")
   // bookListEl.addEventListener('???', () => {})
 
   // newUserFormEl.addEventListener('???', () => {})
