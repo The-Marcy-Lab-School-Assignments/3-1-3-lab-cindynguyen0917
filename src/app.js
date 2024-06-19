@@ -35,7 +35,14 @@ export default async function app(appDiv) {
   renderBookList(bookListEl, books)
 
   getAuthor("/authors/OL22098A")
-  // bookListEl.addEventListener('???', () => {})
+  bookListEl.addEventListener('click', async (event) => {
+    const urlKey = event.target.dataset.authorUrlKey;
+    if (urlKey) {
+      const author = await getAuthor(urlKey)
+      renderAuthorInfo(authorInfoEl, author)
+
+    }
+  })
 
   // newUserFormEl.addEventListener('???', () => {})
 }
