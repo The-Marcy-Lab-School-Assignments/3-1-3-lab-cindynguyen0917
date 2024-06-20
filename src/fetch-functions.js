@@ -52,5 +52,28 @@ export const getAuthor = async (urlKey) => {
     }
 };
 
-export const createNewUser = () => {
+export const createNewUser = async (userObject) => {
+    const option = {
+        method: 'POST',
+        body: JSON.stringify(userObject),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users', option)
+        if (!response.ok) {
+            throw new Error("Failed to create new user")
+        }
+        console.log(response)
+        const newUser = await response.json()
+        console.log(newUser)
+
+        return newUser
+    }
+    catch (error) {
+        console.warn(error.message)
+        return null
+    }
 }
+

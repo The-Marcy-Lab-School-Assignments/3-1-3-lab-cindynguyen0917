@@ -44,5 +44,15 @@ export default async function app(appDiv) {
     }
   })
 
-  // newUserFormEl.addEventListener('???', () => {})
+  renderNewUserForm(newUserFormEl)
+
+  newUserFormEl.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(newUserFormEl);
+    const userObject = Object.entries(formData)
+    createNewUser(userObject).then((newUser) => renderNewUser(newUserEl, newUser))
+    newUserFormEl.reset()
+
+  })
 }
+
